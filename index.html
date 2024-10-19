@@ -59,8 +59,11 @@
         // Display the protected content
         document.getElementById('protected-content').style.display = 'block';
 
-        // Remove the password protection div
-        document.getElementById('protection').style.display = 'none';
+        // Remove the password protection section
+        const protectionDiv = document.getElementById('protection');
+        if (protectionDiv) {
+          protectionDiv.remove(); // Correctly removes the protection section
+        }
 
         // Change the page title to "Freeman Family"
         document.title = 'Freeman Family';
