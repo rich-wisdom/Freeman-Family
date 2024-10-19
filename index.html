@@ -24,7 +24,7 @@
   <p>Please enter the password to access the content.</p>
   
   <input type="password" id="password" placeholder="Enter password" />
-  <button onclick="checkPassword()">Submit</button>
+  <button type="button" id="submitButton">Submit</button>
 
   <div id="protected-content">
     <h1>Welcome Freeman Family</h1>
@@ -47,9 +47,21 @@
   </div>
 
   <script>
+    document.getElementById('submitButton').addEventListener('click', checkPassword);
+
     function checkPassword() {
       const passwordInput = document.getElementById('password').value;
       const correctPassword = 'NateCora'; // Set your password here
 
       if (passwordInput === correctPassword) {
-        document.getElementById('protected-content').style.display =
+        document.getElementById('protected-content').style.display = 'block';
+        document.getElementById('password').style.display = 'none';  // Hide the password input after success
+        document.getElementById('submitButton').style.display = 'none'; // Hide the button after success
+      } else {
+        alert('Incorrect password, please try again.');
+      }
+    }
+  </script>
+
+</body>
+</html>
