@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #protected-content {
+      display: none;
+    }
+    h1, h2, p {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Password Protected Website</h2>
+  <p>Please enter the password to access the content.</p>
+  
+  <input type="password" id="password" placeholder="Enter password" />
+  <button onclick="checkPassword()">Submit</button>
+
+  <div id="protected-content">
+    <h1>Welcome Freeman Family</h1>
+    <h2>Boston 2025!!!</h2>
+    <p>Amazing news Freeman Fam! We plan on having our next family gathering in Boston, MA!<br>
+    We are hosting this heavily anticipated event from June 26th - 29th. There will be a Fish Fry, Cookout, and more to look forward to during the weekend.<br>
+    Also, bring your A-game as we will be hosting the first-ever Freelympics! Will your team get all the glory and go home with the coveted Cora Cup? Come and test your nerve!<br>
+    More details will be coming soon, so be sure to check in once in a while for updates.<br>
+    Hope to see you there!</p>
+
+    <hr>
+
+    <h2>Our current Itinerary</h2>
+    <p>
+      June 26th (Thu) - Arrival<br>
+      June 27th (Fri) - Edna's Fish Fry<br>
+      June 28th (Sat) - Cookout and Freelympics<br>
+      June 29th (Sun) - Church and Send-Off
+    </p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const passwordInput = document.getElementById('password').value;
+      const correctPassword = 'NateCora'; // Set your password here
+
+      if (passwordInput === correctPassword) {
+        document.getElementById('protected-content').style.display =
