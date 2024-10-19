@@ -1,6 +1,6 @@
 // script.js
 
-const correctPassword = 'NateCora'; // Set the correct password
+const correctPassword = 'NatCora'; // Set the correct password
 
 // Check if the user has already accessed the protected content
 if (localStorage.getItem('accessGranted')) {
