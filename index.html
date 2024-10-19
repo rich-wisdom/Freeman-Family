@@ -20,11 +20,13 @@
 </head>
 <body>
 
-  <h2>Password Protected Website</h2>
-  <p>Please enter the password to access the content.</p>
-  
-  <input type="password" id="password" placeholder="Enter password" />
-  <button type="button" id="submitButton">Submit</button>
+  <div id="protection">
+    <h2>Password Protected Website</h2>
+    <p>Please enter the password to access the content.</p>
+    
+    <input type="password" id="password" placeholder="Enter password" />
+    <button type="button" id="submitButton">Submit</button>
+  </div>
 
   <div id="protected-content">
     <h1>Welcome Freeman Family</h1>
@@ -51,12 +53,17 @@
 
     function checkPassword() {
       const passwordInput = document.getElementById('password').value;
-      const correctPassword = 'NateCora'; // Set your password here
+      const correctPassword = 'NateCora'; // Set the correct password
 
       if (passwordInput === correctPassword) {
+        // Display the protected content
         document.getElementById('protected-content').style.display = 'block';
-        document.getElementById('password').style.display = 'none';  // Hide the password input after success
-        document.getElementById('submitButton').style.display = 'none'; // Hide the button after success
+
+        // Remove the password protection div
+        document.getElementById('protection').style.display = 'none';
+
+        // Change the page title to "Freeman Family"
+        document.title = 'Freeman Family';
       } else {
         alert('Incorrect password, please try again.');
       }
