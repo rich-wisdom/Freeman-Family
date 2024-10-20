@@ -28,10 +28,19 @@ body {
     border-color: #007bff;
   }
 
-  /* Additional dark mode styles as needed */
+  h1, h2 {
+    color: #f8f9fa; /* Light color for headings in dark mode */
+  }
+
+  input[type="password"] {
+    background-color: #495057; /* Dark input field */
+    color: #f8f9fa; /* Light text color in input fields */
+  }
+
+  /* Add any additional styles for dark mode here */
 }
 
-/* Navbar styling */
+/* Additional styles for both modes */
 .navbar {
   margin-bottom: 20px; /* Add space below the navbar */
 }
@@ -39,26 +48,6 @@ body {
 /* Container styles */
 .container {
   padding: 20px; /* Add padding to containers */
-}
-
-/* Text center alignment for headers */
-h1, h2 {
-  color: #343a40; /* Dark color for headings */
-}
-
-/* Styling for buttons */
-.btn {
-  margin-top: 10px; /* Add margin to buttons */
-}
-
-/* Input field styles */
-input[type="password"] {
-  border-radius: 5px; /* Rounded corners for input fields */
-}
-
-/* Protected content visibility */
-#protected-content {
-  display: none; /* Hide protected content by default */
 }
 
 /* Add spacing below paragraphs */
