@@ -1,54 +1,13 @@
 /* styles.css */
 
-/* Default Light Mode */
 body {
-  background-color: #ffffff; /* Light background */
-  color: #000000; /* Dark text */
+  background-color: #f8f9fa; /* Light gray background for the body */
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text */
-  }
-  .btn-primary {
-    background-color: #6200ea; /* Purple button */
-    border-color: #6200ea; /* Purple border */
-  }
-  .form-control {
-    background-color: #333; /* Dark input background */
-    color: white; /* Light input text */
-    border-color: #444; /* Darker border */
-  }
-  hr {
-    border-color: #666; /* Lighter border for hr */
-  }
-  input::placeholder {
-    color: #aaa; /* Placeholder color */
-  }
+.navbar {
+  margin-bottom: 20px; /* Add space below the navbar */
 }
 
-
-/* Protected content initially hidden */
 #protected-content {
-  display: none;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* Container styling */
-.container {
-  margin-top: 50px;
-}
-
-/* Spacing for paragraphs and headers */
-h1, h2 {
-  margin-bottom: 20px;
-}
-
-p {
-  margin-bottom: 20px;
+  display: none; /* Hide protected content by default */
 }
