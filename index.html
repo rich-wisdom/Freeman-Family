@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Protected Website</title>
+  <title>Freeman Family</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Link to external CSS file -->
@@ -11,11 +11,31 @@
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Freeman Family</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="itinerary.html">Itinerary</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <div class="container text-center" id="protection">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <h2 class="mb-4">Protected Website</h2>
-        <p class="mb-4">Please enter the password to view updates for the Freeman Family.</p>
+        <h2 class="mb-4">Password Protected Website</h2>
+        <p class="mb-4">Please enter the password to access the content.</p>
         <div class="mb-3 input-group">
           <input type="password" id="password" class="form-control" placeholder="Enter password" />
           <button class="btn btn-outline-secondary" type="button" id="togglePassword">See</button>
@@ -47,22 +67,14 @@
         </p>
 
         <hr class="my-4">
+        
         <p class="mb-4">
           If you haven't already, click the link below to fill out the family gathering interest form.
         </p>
 
         <button class="btn btn-success mb-4" onclick="window.open('https://forms.gle/7vCdBSENN31Atr14A', '_blank')">Open Form</button>
 
-        <hr class="my-4">
-        
-        <h2 class="mb-4">Our Current Itinerary</h2>
-        <p class="mb-4">
-          June 26th (Thu) - Arrival<br>
-          June 27th (Fri) - Edna's Fish Fry<br>
-          June 28th (Sat) - Cookout and Freelympics<br>
-          June 29th (Sun) - Church and Send-Off
-        </p>
-      </div>
+        </div>
     </div>
   </div>
 
