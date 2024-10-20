@@ -7,21 +7,23 @@ if (localStorage.getItem('accessGranted')) {
   enableNavigation(); // Enable navigation if access is granted
 }
 
-// Add event listeners
-document.getElementById('submitButton')?.addEventListener('click', checkPassword);
-document.getElementById('password')?.addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    checkPassword();
-  }
-});
+// Add event listeners to the main page only
+if (document.getElementById('submitButton')) {
+  document.getElementById('submitButton').addEventListener('click', checkPassword);
+  document.getElementById('password').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      checkPassword();
+    }
+  });
 
-// Toggle password visibility
-document.getElementById('togglePassword')?.addEventListener('click', function() {
-  const passwordInput = document.getElementById('password');
-  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
-  this.textContent = type === 'password' ? 'See' : 'Hide';
-});
+  // Toggle password visibility
+  document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.textContent = type === 'password' ? 'See' : 'Hide';
+  });
+}
 
 // Function to check the password
 function checkPassword() {
@@ -55,8 +57,8 @@ function enableNavigation() {
   });
 }
 
-// Initially disable navigation on the main page
-if (!localStorage.getItem('accessGranted')) {
+// Disable navigation if access has not been granted on the main page
+if (!localStorage.getItem('accessGranted') && document.getElementById('navLink')) {
   disableNavigation();
 }
 
