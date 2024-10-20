@@ -1,13 +1,33 @@
 // script.js
 
-const correctPassword = 'NatCora'; // Set the correct password
+const correctPassword = 'NateCora'; // Set the correct password
 
-// Check if the user has already accessed the protected content
-if (localStorage.getItem('accessGranted')) {
-  enableNavigation(); // Enable navigation if access is granted
-  if (document.getElementById('protected-content')) {
+// Function to check if the user has already logged in
+function checkLoginStatus() {
+  if (localStorage.getItem('accessGranted')) {
+    enableNavigation(); // Enable navigation if access is granted
     showProtectedContent(); // Show protected content if on index.html
+  } else {
+    disableNavigation(); // Disable navigation if access is not granted
   }
+}
+
+// Run checkLoginStatus on page load
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+// Listen for changes in the color scheme
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+darkModeMediaQuery.addEventListener('change', (e) => {
+  if (e.matches) {
+    document.body.classList.add('dark-mode'); // Add class for dark mode
+  } else {
+    document.body.classList.remove('dark-mode'); // Remove class for light mode
+  }
+});
+
+// Initial check for dark mode
+if (darkModeMediaQuery.matches) {
+  document.body.classList.add('dark-mode');
 }
 
 // Add event listeners to the main page only
@@ -61,11 +81,6 @@ function enableNavigation() {
     link.classList.remove('disabled');
     link.setAttribute('aria-disabled', 'false');
   });
-}
-
-// Disable navigation if access has not been granted on index.html
-if (!localStorage.getItem('accessGranted') && window.location.pathname.endsWith('index.html')) {
-  disableNavigation();
 }
 
 // Function to disable navigation links
