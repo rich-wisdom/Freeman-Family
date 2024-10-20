@@ -4,61 +4,61 @@ const correctPassword = 'NatCora'; // Set the correct password
 
 // Check if the user has already accessed the protected content
 if (localStorage.getItem('accessGranted')) {
-  // If access is granted, enable navigation
+  showProtectedContent();
   enableNavigation();
 }
 
-// Check for the password input and submission on the home page
-if (document.getElementById('submitButton')) {
-  document.getElementById('submitButton').addEventListener('click', checkPassword);
-  document.getElementById('password').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      checkPassword(); // Call the checkPassword function when Enter is pressed
-    }
-  });
-}
+document.getElementById('submitButton').addEventListener('click', checkPassword);
+document.getElementById('password').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    checkPassword();
+  }
+});
 
-// Toggle password visibility (if the toggle button is present)
-if (document.getElementById('togglePassword')) {
-  document.getElementById('togglePassword').addEventListener('click', function() {
-    const passwordInput = document.getElementById('password');
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    this.textContent = type === 'password' ? 'See' : 'Hide';
-  });
-}
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', function() {
+  const passwordInput = document.getElementById('password');
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  this.textContent = type === 'password' ? 'See' : 'Hide';
+});
 
-// Function to check the password
 function checkPassword() {
   const passwordInput = document.getElementById('password').value;
 
   if (passwordInput === correctPassword) {
-    // Store access granted in localStorage
+    showProtectedContent();
     localStorage.setItem('accessGranted', 'true');
-
-    // Enable navigation links
     enableNavigation();
   } else {
     alert('Incorrect password, please try again.');
   }
 }
 
-// Function to enable navigation links
+function showProtectedContent() {
+  document.getElementById('protected-content').style.display = 'block';
+  const protectionDiv = document.getElementById('protection');
+  if (protectionDiv) {
+    protectionDiv.remove();
+  }
+  document.title = 'Freeman Family';
+}
+
 function enableNavigation() {
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     link.classList.remove('disabled');
-    link.setAttribute('aria-disabled', 'false'); // Ensure the links are accessible
+    link.setAttribute('aria-disabled', 'false');
   });
 }
 
-// Initially disable navigation links
+// Initially disable navigation
 disableNavigation();
 
 function disableNavigation() {
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     link.classList.add('disabled');
-    link.setAttribute('aria-disabled', 'true'); // Disable for accessibility
+    link.setAttribute('aria-disabled', 'true');
   });
 }
