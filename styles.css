@@ -2,8 +2,8 @@
 
 /* General body styling */
 body {
-  background-color: #f8f9fa; /* Light mode background */
-  color: #343a40; /* Light mode text color */
+  background-color: #f8f9fa; /* Default light mode background */
+  color: #212529; /* Default light mode text color */
   font-family: Arial, sans-serif; /* Set a default font */
   line-height: 1.6; /* Improve text readability */
 }
@@ -16,14 +16,19 @@ body {
   }
 
   .navbar {
-    background-color: #212529; /* Dark navbar */
+    background-color: #495057; /* Dark navbar */
   }
 
   .nav-link {
-    color: #f8f9fa; /* White text for navbar links */
+    color: #f8f9fa; /* Light text for nav links in dark mode */
   }
 
-  /* Add more dark mode styles as needed */
+  .btn-primary {
+    background-color: #007bff; /* Button color */
+    border-color: #007bff;
+  }
+
+  /* Additional dark mode styles as needed */
 }
 
 /* Navbar styling */
@@ -36,6 +41,11 @@ body {
   padding: 20px; /* Add padding to containers */
 }
 
+/* Text center alignment for headers */
+h1, h2 {
+  color: #343a40; /* Dark color for headings */
+}
+
 /* Styling for buttons */
 .btn {
   margin-top: 10px; /* Add margin to buttons */
@@ -44,6 +54,11 @@ body {
 /* Input field styles */
 input[type="password"] {
   border-radius: 5px; /* Rounded corners for input fields */
+}
+
+/* Protected content visibility */
+#protected-content {
+  display: none; /* Hide protected content by default */
 }
 
 /* Add spacing below paragraphs */
