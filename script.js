@@ -4,8 +4,9 @@ const correctPassword = 'NatCora'; // Set the correct password
 
 // Check if the user has already accessed the protected content
 if (localStorage.getItem('accessGranted')) {
-  // If access is granted, show protected content
+  // If access is granted, show protected content and enable navigation
   showProtectedContent();
+  enableNavigation();
 }
 
 document.getElementById('submitButton').addEventListener('click', checkPassword);
@@ -32,6 +33,9 @@ function checkPassword() {
     
     // Store access granted in localStorage
     localStorage.setItem('accessGranted', 'true');
+
+    // Enable navigation links
+    enableNavigation();
   } else {
     alert('Incorrect password, please try again.');
   }
@@ -49,4 +53,25 @@ function showProtectedContent() {
 
   // Change the page title to "Freeman Family"
   document.title = 'Freeman Family';
+}
+
+function enableNavigation() {
+  // Enable all navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.remove('disabled'); // Remove Bootstrap 'disabled' class
+    link.setAttribute('aria-disabled', 'false'); // Ensure they are no longer disabled for screen readers
+  });
+}
+
+// Initially disable navigation
+disableNavigation();
+
+function disableNavigation() {
+  // Disable all navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.add('disabled'); // Add Bootstrap 'disabled' class
+    link.setAttribute('aria-disabled', 'true'); // Ensure they are properly disabled for screen readers
+  });
 }
