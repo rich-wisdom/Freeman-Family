@@ -5,6 +5,9 @@ const correctPassword = 'NatCora'; // Set the correct password
 // Check if the user has already accessed the protected content
 if (localStorage.getItem('accessGranted')) {
   enableNavigation(); // Enable navigation if access is granted
+  if (document.getElementById('protected-content')) {
+    showProtectedContent(); // Show protected content if on index.html
+  }
 }
 
 // Add event listeners to the main page only
@@ -40,7 +43,10 @@ function checkPassword() {
 
 // Function to show protected content
 function showProtectedContent() {
-  document.getElementById('protected-content').style.display = 'block';
+  const protectedContent = document.getElementById('protected-content');
+  if (protectedContent) {
+    protectedContent.style.display = 'block';
+  }
   const protectionDiv = document.getElementById('protection');
   if (protectionDiv) {
     protectionDiv.remove(); // Remove password protection elements
@@ -57,8 +63,8 @@ function enableNavigation() {
   });
 }
 
-// Disable navigation if access has not been granted on the main page
-if (!localStorage.getItem('accessGranted') && document.getElementById('navLink')) {
+// Disable navigation if access has not been granted on index.html
+if (!localStorage.getItem('accessGranted') && window.location.pathname.endsWith('index.html')) {
   disableNavigation();
 }
 
