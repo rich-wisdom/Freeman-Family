@@ -13,19 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('passwordForm');
     const passwordInput = document.getElementById('password');
     const navLinks = document.querySelectorAll('.nav-link');
-    const passwordSection = document.getElementById('passwordSection');
-    const contentSection = document.getElementById('contentSection');
-    const showPasswordButton = document.getElementById('showPassword');
+    const passwordSection = document.getElementById('protection');
+    const contentSection = document.getElementById('protected-content');
+    const showPasswordButton = document.getElementById('togglePassword');
 
     // Check localStorage for saved login
     if (localStorage.getItem('accessGranted') === 'true') {
-        enableNavigation();  // Enable navigation and content if previously logged in
+        enableNavigation();
         showProtectedContent();
     }
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent form submission
-        checkPassword(); // Validate password
+    document.getElementById('submitButton').addEventListener('click', function (e) {
+        checkPassword();
     });
 
     // Function to check the password
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showPasswordButton.textContent = 'Hide Password'; // Update button text
         } else {
             passwordInput.type = 'password';
-            showPasswordButton.textContent = 'Show Password'; // Update button text
+            showPasswordButton.textContent = 'See'; // Update button text
         }
     });
 
