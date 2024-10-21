@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const passwordSection = document.getElementById('passwordSection');
     const contentSection = document.getElementById('contentSection');
+    const showPasswordButton = document.getElementById('showPassword');
 
     // Check localStorage for saved login
     if (localStorage.getItem('accessGranted') === 'true') {
@@ -24,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault(); // Prevent form submission
-
         checkPassword(); // Validate password
     });
 
@@ -64,11 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Toggle password visibility
-    document.getElementById('showPassword').addEventListener('click', function () {
+    showPasswordButton.addEventListener('click', function () {
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
+            showPasswordButton.textContent = 'Hide Password'; // Update button text
         } else {
             passwordInput.type = 'password';
+            showPasswordButton.textContent = 'Show Password'; // Update button text
         }
     });
 
