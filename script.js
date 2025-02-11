@@ -101,3 +101,31 @@ function disableNavigation() {
     link.setAttribute('aria-disabled', 'true');
   });
 }
+
+// Countdown Timer
+function startCountdown(eventDate) {
+  const countdownElement = document.getElementById('countdown');
+  const eventTime = new Date(eventDate).getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = eventTime - now;
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = `Time until event: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    if (timeLeft < 0) {
+      clearInterval(countdownInterval);
+      countdownElement.innerHTML = "The event has started!";
+    }
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Start the countdown to the event date
+startCountdown('2025-06-26T00:00:00'); // Set your event date here
